@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/imagenes">
+        <file>Recursos/salario.png</file>
+        <file>Recursos/calculator-1.png</file>
+        <file>Recursos/document.png</file>
+        <file>Recursos/exit-1.png</file>
+        <file>Recursos/folder-10.png</file>
+        <file>Recursos/info.png</file>
+        <file>Recursos/save.png</file>
+    </qresource>
+</RCC>

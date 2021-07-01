@@ -12,11 +12,13 @@ SOURCES += \
     acerca.cpp \
     calculosalario.cpp \
     main.cpp \
+    obrero.cpp \
     principal.cpp
 
 HEADERS += \
     acerca.h \
     calculosalario.h \
+    obrero.h \
     principal.h
 
 FORMS += \

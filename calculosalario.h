@@ -1,7 +1,7 @@
 #ifndef CALCULOSALARIO_H
 #define CALCULOSALARIO_H
-
 #include <QObject>
+#include "obrero.h"
 
 class CalculoSalario : public QObject
 {
@@ -16,10 +16,7 @@ private:
     float const VALOR_HORA_NOCTURNO = 12.65;
     float const PORCENTAJE_DESCUENTO = 9.5;
     /* VARIABLES MIEMBRO */
-    int m_horas;    //Numeros de horas trabajadas
-    QString m_nombre;
-    char m_jornada;
-
+    Obrero *obrero;
     float m_salarioBruto; //Salario sin descuento
     float m_descuento;    //Valor del descuento
     float m_salarioNeto;  //Valor del salario a recibir
@@ -27,8 +24,7 @@ private:
     QString getJornada();
 public:
     explicit CalculoSalario(QObject *parent = nullptr);
-
-    CalculoSalario(QString nombre, int horas,char jornada);
+    CalculoSalario(Obrero &obrero);
     void calcular();
     QString resultado();
     float salarioBruto() const;

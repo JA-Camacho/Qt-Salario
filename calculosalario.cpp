@@ -3,7 +3,7 @@
 QString CalculoSalario::getJornada()
 {
     QString str;
-    switch(m_jornada)
+    switch(obrero->jornada())
     {
     case 'V':
         str = "Vespertina";
@@ -23,18 +23,16 @@ CalculoSalario::CalculoSalario(QObject *parent) : QObject(parent)
 
 }
 
-CalculoSalario::CalculoSalario(QString nombre, int horas, char jornada)
+CalculoSalario::CalculoSalario(Obrero &obrero)
 {
-    this->m_nombre = nombre;
-    this->m_horas = horas;
-    this->m_jornada = jornada;
+    this->obrero = &obrero;
 }
 
 QString CalculoSalario::resultado()
 {
     QString str;
-    str = "Obrero " + m_nombre + "\n";
-    str += "Horas: " + QString::number(m_horas) + "\n";
+    str = "Obrero " + obrero->nombre() + "\n";
+    str += "Horas: " + QString::number(obrero->horas()) + "\n";
     str += "Jornada: " + getJornada() + "\n";
     str += "Salario Bruto: $" + QString::number(m_salarioBruto) + "\n";
     str += "Descuento: $" + QString::number(m_descuento) + "\n";
@@ -45,7 +43,7 @@ QString CalculoSalario::resultado()
 void CalculoSalario::calcular()
 {
     float valorHora = 0;
-    switch(m_jornada)
+    switch(obrero->jornada())
     {
     case 'V':
         valorHora = VALOR_HORA_VESPERTINO;
@@ -58,7 +56,7 @@ void CalculoSalario::calcular()
         break;
     }
 
-    m_salarioBruto = m_horas * valorHora;
+    m_salarioBruto = obrero->horas() * valorHora;
     m_descuento = m_salarioBruto * PORCENTAJE_DESCUENTO/100;
     m_salarioNeto = m_salarioBruto - m_descuento;
 }

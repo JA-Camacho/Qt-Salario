@@ -13,6 +13,8 @@ public:
     int horas() const;
     QString nombre() const;
     char jornada() const;
+    QString getJornada();
+    QString informacion();
 };
 
 #endif // OBRERO_H

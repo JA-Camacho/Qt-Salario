@@ -21,7 +21,6 @@ private:
     float m_descuento;    //Valor del descuento
     float m_salarioNeto;  //Valor del salario a recibir
 
-    QString getJornada();
 public:
     explicit CalculoSalario(QObject *parent = nullptr);
     CalculoSalario(Obrero &obrero);
